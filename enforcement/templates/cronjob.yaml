@@ -1,0 +1,74 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "enforcement.fullname" . }}-job 
+  labels:
+    {{- include "enforcement.labels" . | nindent 4 }}
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+        {{- with .Values.podAnnotations }}
+            annotations:
+            {{- toYaml . | nindent 8 }}
+        {{- end }}
+            labels:
+                {{- include "enforcement.selectorLabels" . | nindent 8 }}
+        spec:
+          containers:
+            - name: {{ .Chart.Name }}
+              image: "rodrigoribeiro/enforcement-service:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              resources: 
+                limits:
+                    cpu: {{ .Values.resources.limits.cpu}}
+                    memory: {{ .Values.resources.limits.memory}}
+                requests:
+                    cpu: {{ .Values.resources.requests.cpu}}
+                    memory: {{ .Values.resources.requests.memory}}
+              env:
+                - name: RANCHER_URL
+                  valueFrom:
+                    configMapKeyRef:
+                      name: enforcement-configs
+                      key: rancher_url
+                - name: ARGO_URL
+                  valueFrom:
+                    configMapKeyRef:
+                      name: enforcement-configs
+                      key: argo_url
+                - name: ENFORCEMENT_CORE_REPO
+                  valueFrom:
+                    configMapKeyRef:
+                      name: enforcement-configs
+                      key: enforcement_core_repo
+                - name: ENFORCEMENT_CORE_PATH
+                  valueFrom:
+                    configMapKeyRef:
+                      name: enforcement-configs
+                      key: enforcement_core_path
+                - name: ENFORCEMENT_NAME
+                  valueFrom:
+                    configMapKeyRef:
+                      name: enforcement-configs
+                      key: enforcement_core_name
+                - name: RANCHER_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: rancher-enforcement-secret
+                      key: token
+                - name: ARGO_USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: argo-enforcement-secret
+                      key: username
+                - name: ARGO_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: argo-enforcement-secret
+                      key: password
+
+          restartPolicy: OnFailure
