@@ -27,6 +27,8 @@ spec:
                   value: "https://{{.Values.spec.rancher.host}}"
                 - name: ARGO_URL
                   value:  "https://{{.Values.spec.argo.host}}"
+                - name: IGNORE_CLUSTERS
+                  value: {{.Values.spec.rancher.ignore_clusters}}
                 - name: ENFORCEMENT_CORE_REPO
                   value: {{.Values.spec.enforcement.core.repo}}
                 - name: ENFORCEMENT_CORE_PATH
