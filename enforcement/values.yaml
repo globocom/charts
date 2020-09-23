@@ -7,19 +7,6 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-podAnnotations: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
 resources: 
   limits:
     cpu: 100m
@@ -28,7 +15,6 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-
 nodeSelector: {}
 
 tolerations: []
@@ -36,13 +22,15 @@ tolerations: []
 affinity: {}
 
 spec:
+  sync:
+    minutes: 1 
   argo:
-    url: https://192.168.39.248:31961
+    host: argocd-server.argocd.svc.cluster.local
   rancher:
-    url: https://192.168.0.76
+    host: ""
   enforcement:
     secret: enforcement-secret
     core:
-      repo: https://github.com/ribeiro-rodrigo-exemplos/argocd-example-apps.git
+      repo: ""
       path: apps 
       name: enforcement-application

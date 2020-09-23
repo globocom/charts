@@ -5,18 +5,11 @@ metadata:
   labels:
     {{- include "enforcement.labels" . | nindent 4 }}
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/{{ .Values.spec.sync.minutes}} * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
-        metadata:
-        {{- with .Values.podAnnotations }}
-            annotations:
-            {{- toYaml . | nindent 8 }}
-        {{- end }}
-            labels:
-                {{- include "enforcement.selectorLabels" . | nindent 8 }}
         spec:
           containers:
             - name: {{ .Chart.Name }}
@@ -31,44 +24,40 @@ spec:
                     memory: {{ .Values.resources.requests.memory}}
               env:
                 - name: RANCHER_URL
-                  valueFrom:
-                    configMapKeyRef:
-                      name: enforcement-configs
-                      key: rancher_url
+                  value: "https://{{.Values.spec.rancher.host}}"
                 - name: ARGO_URL
-                  valueFrom:
-                    configMapKeyRef:
-                      name: enforcement-configs
-                      key: argo_url
+                  value:  "https://{{.Values.spec.argo.host}}"
                 - name: ENFORCEMENT_CORE_REPO
-                  valueFrom:
-                    configMapKeyRef:
-                      name: enforcement-configs
-                      key: enforcement_core_repo
+                  value: {{.Values.spec.enforcement.core.repo}}
                 - name: ENFORCEMENT_CORE_PATH
-                  valueFrom:
-                    configMapKeyRef:
-                      name: enforcement-configs
-                      key: enforcement_core_path
+                  value: {{.Values.spec.enforcement.core.path}}
                 - name: ENFORCEMENT_NAME
-                  valueFrom:
-                    configMapKeyRef:
-                      name: enforcement-configs
-                      key: enforcement_core_name
+                  value:  {{.Values.spec.enforcement.core.name}}
                 - name: RANCHER_TOKEN
                   valueFrom:
                     secretKeyRef:
-                      name: rancher-enforcement-secret
-                      key: token
+                      name: {{.Values.spec.enforcement.secret}}
+                      key: rancher.token
                 - name: ARGO_USERNAME
                   valueFrom:
                     secretKeyRef:
-                      name: argo-enforcement-secret
-                      key: username
+                      name: {{.Values.spec.enforcement.secret}}
+                      key: argo.username
                 - name: ARGO_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: argo-enforcement-secret
-                      key: password
-
+                      name: {{.Values.spec.enforcement.secret}}
+                      key: argo.password
           restartPolicy: OnFailure
+                {{- with .Values.nodeSelector }}
+          nodeSelector:
+                {{- toYaml . | nindent 8 }}
+            {{- end }}
+            {{- with .Values.affinity }}
+          affinity:
+                {{- toYaml . | nindent 8 }}
+            {{- end }}
+            {{- with .Values.tolerations }}
+          tolerations:
+                {{- toYaml . | nindent 8 }}
+            {{- end }}
