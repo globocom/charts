@@ -28,7 +28,7 @@ spec:
     host: argocd-server.argocd.svc.cluster.local
   rancher:
     host: ""
-    ignore_clusters: ""
+    ignore_clusters: "none"
   enforcement:
     secret: enforcement-secret
     core:
