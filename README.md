@@ -10,4 +10,4 @@ The `source` directory contains Helm chart source, while the `repo/stable` direc
 ```
 helm repo add globocom https://globocom.github.io/charts/repo/stable
 ```
-The repo/stable, repo/entitled, and repo/community directories are Helm repositories, and their index.yaml file is built automatically based on the MASTER branch.
+The repo/stable directory is Helm repositories, and their index.yaml file is built automatically based on the MASTER branch.
