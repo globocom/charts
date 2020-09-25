@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  enforcement:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2020-09-25T16:53:45.544102084-03:00"
+    description: A Helm chart for Kubernetes
+    digest: ee30d085a59392d37b5591c6f2930fac30bd543e307b0637daf58c2ee3d5668b
+    name: enforcement
+    type: application
+    urls:
+    - https://globocom.github.io/charts/repo/stable/enforcement-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-09-25T16:53:45.543289462-03:00"
