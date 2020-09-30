@@ -77,3 +77,22 @@ $ helm install my-release -f values.yaml globocom/enforcement
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
+
+## Enforcement Secret
+
+The Enforcement Service obtains access credentials for Rancher and ArgoCD from a secret whose default name is enforcement-secret. 
+This is an example of the expected secret.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: enforcement-secret
+type: Opaque
+data:
+  argo.username: YWRtaW4=
+  argo.password: YWRtaW4=
+  rancher.token: dG9rZW4tcTViaHI6eHRjZDVsYnpsZzZtaG52bmN3YnJrNTV6dm1oYjg0OXZ6cW03d252Mnh0cnR6aHM5c3E2ZHNz
+```
+> **Tip**: If you want to create the secret with a name other than enforcement-secret, you will need to specify it at the time of installing the chart via the `spec.enforcement.secret` parameter
+
