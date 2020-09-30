@@ -38,3 +38,25 @@ $ helm delete my-release
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Parameters
+
+The following table lists the configurable parameters of the Enforcement chart and their default values.
+
+| Parameter | Default |      Example     |          Description         |
+|:---------:|:-------:|:----------------:|:----------------------------:|
+| `image.pullPolicy`     | POST    | /api/people      | Cria uma nova pessoa         |
+| `image.tag`       | GET     | /api/people      | Obtêm um conjunto de pessoas |
+| `resources.limits.cpu`       | GET     | /api/people/{id} | Obtêm uma única pessoa       |
+| `resources.limits.memory` | PUT     | /api/people/{id} | Atualiza uma pessoa          |
+| `resources.requests.cpu`   | DELETE  | /api/people/{id} | Remove uma pessoa            |
+| `resources.requests.memory` | | | 
+| `nodeSelector` | | | | 
+| `tolerations` | | | | 
+| `affinity` | | | | 
+| `spec.sync.minutes` | | | | 
+| `spec.argo.host` | | | | 
+| `spec.rancher.host` | | | | 
+| `spec.rancher.ignore_clusters` | | | |
+| `spec.enforcement.secret` | | | |
+| `spec.enforcement.core.repo` | | | | 
+| `spec.enforcement.core.path` | | | |
+| `spec.enforcement.core.name` | | | | 
