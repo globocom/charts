@@ -60,3 +60,20 @@ The following table lists the configurable parameters of the Enforcement chart a
 | `spec.enforcement.core.repo` | | URL of the Git repository that contains the Standard enforcements. | 
 | `spec.enforcement.core.path` | standard | path to the Git repository that contains the default enforcements | 
 | `spec.enforcement.core.name` | standard | Default enforcement name | 
+
+
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+
+```bash
+$ helm install my-release \
+  --set image.tag=latest \
+    globocom/enforcement
+```
+
+Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+
+```bash
+$ helm install my-release -f values.yaml globocom/enforcement
+```
+
+> **Tip**: You can use the default [values.yaml](values.yaml)
