@@ -41,14 +41,14 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the Enforcement chart and their default values.
 
-| Parameter | Default |      Example     |          Description         |
-|:---------:|:-------:|:----------------:|:----------------------------:|
-| `image.pullPolicy`     | POST    | /api/people      | Cria uma nova pessoa         |
-| `image.tag`       | GET     | /api/people      | Obtêm um conjunto de pessoas |
-| `resources.limits.cpu`       | GET     | /api/people/{id} | Obtêm uma única pessoa       |
-| `resources.limits.memory` | PUT     | /api/people/{id} | Atualiza uma pessoa          |
-| `resources.requests.cpu`   | DELETE  | /api/people/{id} | Remove uma pessoa            |
-| `resources.requests.memory` | | | 
+| Parameter | Default |          Description         |
+|:---------:|:-------:|:----------------------------:|
+| `image.pullPolicy`  | IfNotPresent    | Define image pull policy      |
+| `image.tag`                 |      | Enforcement image tag    |  
+| `resources.limits.cpu`       | 200m   | Enforcement CPU resource limits       |
+| `resources.limits.memory` | 228Mi     | Enforcement Memory resource limits    |
+| `resources.requests.cpu`   | 100m     | Enforcement CPU resource requests     |
+| `resources.requests.memory` | 128Mi   | Enforcement Memory resource requests  | 
 | `nodeSelector` | | | | 
 | `tolerations` | | | | 
 | `affinity` | | | | 
