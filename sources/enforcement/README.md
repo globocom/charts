@@ -49,8 +49,8 @@ The following table lists the configurable parameters of the Enforcement chart a
 | `resources.limits.memory` | 228Mi     | Enforcement Memory resource limits    |
 | `resources.requests.cpu`   | 100m     | Enforcement CPU resource requests     |
 | `resources.requests.memory` | 128Mi   | Enforcement Memory resource requests  | 
-| `nodeSelector` | [] | Pod assignment labels | 
-| `tolerations` |  | Tolerance labels for the Enforcement pod |
+| `nodeSelector` | {} | Pod assignment labels | 
+| `tolerations` | [] | Tolerance labels for the Enforcement pod |
 | `affinity` | {} | Enforcement pod assignment affinity settings  | 
 | `spec.sync.minutes` | 1 | Time interval for Enforcement to synchronize with Rancher | 
 | `spec.argo.host` | argocd-server.argocd.svc.cluster.local | ArgoCD hostname |  
