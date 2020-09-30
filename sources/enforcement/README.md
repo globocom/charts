@@ -49,14 +49,14 @@ The following table lists the configurable parameters of the Enforcement chart a
 | `resources.limits.memory` | 228Mi     | Enforcement Memory resource limits    |
 | `resources.requests.cpu`   | 100m     | Enforcement CPU resource requests     |
 | `resources.requests.memory` | 128Mi   | Enforcement Memory resource requests  | 
-| `nodeSelector` | | | | 
-| `tolerations` | | | | 
-| `affinity` | | | | 
-| `spec.sync.minutes` | | | | 
-| `spec.argo.host` | | | | 
-| `spec.rancher.host` | | | | 
-| `spec.rancher.ignore_clusters` | | | |
-| `spec.enforcement.secret` | | | |
-| `spec.enforcement.core.repo` | | | | 
-| `spec.enforcement.core.path` | | | |
-| `spec.enforcement.core.name` | | | | 
+| `nodeSelector` | [] | Pod assignment labels | 
+| `tolerations` |  | Tolerance labels for the Enforcement pod |
+| `affinity` | {} | Enforcement pod assignment affinity settings  | 
+| `spec.sync.minutes` | 1 | Time interval for Enforcement to synchronize with Rancher | 
+| `spec.argo.host` | argocd-server.argocd.svc.cluster.local | ArgoCD hostname |  
+| `spec.rancher.host` | | Rancher hostname | 
+| `spec.rancher.ignore_clusters` | | Name of the Clusters that were created through Rancher and that should be ignored by Enforcement. Ex "cluster1 \, cluster2 \, cluster3". Ex "cluster1 \\, cluster2 \\, cluster3" | 
+| `spec.enforcement.secret` | enforcement-secret | Name of the secret that stores the access information for integration with ArgoCD and Rancher. | 
+| `spec.enforcement.core.repo` | | URL of the Git repository that contains the Standard enforcements. | 
+| `spec.enforcement.core.path` | standard | path to the Git repository that contains the default enforcements | 
+| `spec.enforcement.core.name` | standard | Default enforcement name | 
