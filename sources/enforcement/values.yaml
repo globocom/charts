@@ -1,5 +1,5 @@
 image:
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
@@ -9,8 +9,8 @@ fullnameOverride: ""
 
 resources: 
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 200m
+    memory: 228Mi
   requests:
     cpu: 100m
     memory: 128Mi
@@ -33,5 +33,5 @@ spec:
     secret: enforcement-secret
     core:
       repo: ""
-      path: apps 
-      name: enforcement-application
+      path: standard 
+      name: standard
