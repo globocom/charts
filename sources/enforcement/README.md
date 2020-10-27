@@ -1,6 +1,6 @@
 # Enforcement
 
-[Enforcement](https://github.com/globocom/enforcement-service) is a service developed to automate the installation of packages considered mandatory in clusters created by Rancher. It does this by integrating Rancher with the ArgoCD GitOps platform.
+[Enforcement](https://github.com/globocom/enforcement-service) is an open source project focused on the management and simultaneous deployment of applications and policies across multiple clusters through GitOps.
 
 
 ## Introduction
@@ -52,15 +52,9 @@ The following table lists the configurable parameters of the Enforcement chart a
 | `nodeSelector` | {} | Pod assignment labels | 
 | `tolerations` | [] | Tolerance labels for the Enforcement pod |
 | `affinity` | {} | Enforcement pod assignment affinity settings  | 
-| `spec.sync.minutes` | 1 | Time interval for Enforcement to synchronize with Rancher | 
 | `spec.argo.host` | argocd-server.argocd.svc.cluster.local | ArgoCD hostname |  
-| `spec.rancher.host` | | Rancher hostname | 
-| `spec.rancher.ignore_clusters` | | Name of the Clusters that were created through Rancher and that should be ignored by Enforcement. Ex "cluster1 \, cluster2 \, cluster3". Ex "cluster1 \\, cluster2 \\, cluster3" | 
+| `spec.rancher.host` | | Rancher hostname |  
 | `spec.enforcement.secret` | enforcement-secret | Name of the secret that stores the access information for integration with ArgoCD and Rancher. | 
-| `spec.enforcement.core.repo` | | URL of the Git repository that contains the Standard enforcements. | 
-| `spec.enforcement.core.path` | standard | path to the Git repository that contains the default enforcements | 
-| `spec.enforcement.core.name` | standard | Default enforcement name | 
-
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
