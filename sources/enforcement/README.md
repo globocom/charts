@@ -13,6 +13,7 @@ This chart initializes an Enforcement deployment on a Kubernetes cluster using t
 - Helm 2.11+ or Helm 3.0-beta3+
 
 ## Installation
+See [instructions](https://github.com/globocom/charts) for adding the helm repository from globo.com
 
 ```bash
 # Testing configuration
