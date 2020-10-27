@@ -22,16 +22,9 @@ tolerations: []
 affinity: {}
 
 spec:
-  sync:
-    minutes: 1 
   argo:
     host: argocd-server.argocd.svc.cluster.local
   rancher:
     host: ""
-    ignore_clusters: "none"
   enforcement:
     secret: enforcement-secret
-    core:
-      repo: ""
-      path: apps 
-      name: enforcement-application
