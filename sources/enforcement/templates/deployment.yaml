@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "enforcement.fullname" . }}
+  labels:
+    {{- include "enforcement.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "enforcement.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "enforcement.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "enforcement.fullname" . }}-account
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "rodrigoribeiro/enforcement:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["kopf"]
+        args: ["run", "main.py", "--namespace={{ .Release.Namespace }}", "--quiet"]
+        resources:
+          limits:
+            cpu: {{ .Values.resources.limits.cpu}}
+            memory: {{ .Values.resources.limits.memory}}
+          requests:
+            cpu: {{ .Values.resources.requests.cpu}}
+            memory: {{ .Values.resources.requests.memory}}
+        env:
+          - name: RANCHER_URL
+            value: "https://{{.Values.spec.rancher.host}}"
+          - name: ARGO_URL
+            value: "https://{{.Values.spec.argo.host}}"
+          - name: RANCHER_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{.Values.spec.enforcement.secret}}
+                key: rancher.token
+          - name: ARGO_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{.Values.spec.enforcement.secret}}
+                key: argo.username
+          - name: ARGO_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{.Values.spec.enforcement.secret}}
+                key: argo.password
+          - name: PYTHONWARNINGS
+            value: "ignore:Unverified HTTPS request"
+      restartPolicy: Always
+            {{- with .Values.nodeSelector }}
+      nodeSelector: 
+            {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.affinity }}
+      affinity: 
+            {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.tolerations }}
+      tolerations:
+            {{- toYaml . | nindent 8 }}
+        {{- end }}      
