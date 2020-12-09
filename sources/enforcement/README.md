@@ -45,7 +45,7 @@ The following table lists the configurable parameters of the Enforcement chart a
 | Parameter | Default |          Description         |
 |:---------:|:-------:|:----------------------------:|
 | `image.pullPolicy`  | IfNotPresent    | Define image pull policy      |
-| `image.tag`                 |      | Enforcement image tag    |  
+| `image.tag`                 |  latest    | Enforcement image tag    |  
 | `resources.limits.cpu`       | 200m   | Enforcement CPU resource limits       |
 | `resources.limits.memory` | 228Mi     | Enforcement Memory resource limits    |
 | `resources.requests.cpu`   | 100m     | Enforcement CPU resource requests     |
