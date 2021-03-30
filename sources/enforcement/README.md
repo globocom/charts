@@ -54,7 +54,6 @@ The following table lists the configurable parameters of the Enforcement chart a
 | `tolerations` | [] | Tolerance labels for the Enforcement pod |
 | `affinity` | {} | Enforcement pod assignment affinity settings  | 
 | `spec.argo.host` | argocd-server.argocd.svc.cluster.local | ArgoCD hostname |  
-| `spec.rancher.host` | | Rancher hostname |  
 | `spec.enforcement.secret` | enforcement-secret | Name of the secret that stores the access information for integration with ArgoCD and Rancher. | 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
@@ -87,7 +86,6 @@ type: Opaque
 data:
   argo.username: YWRtaW4=
   argo.password: YWRtaW4=
-  rancher.token: dG9rZW4tcTViaHI6eHRjZDVsYnpsZzZtaG52bmN3YnJrNTV6dm1oYjg0OXZ6cW03d252Mnh0cnR6aHM5c3E2ZHNz
 ```
 > **Tip**: If you want to create the secret with a name other than enforcement-secret, you will need to specify it at the time of installing the chart via the `spec.enforcement.secret` parameter
 

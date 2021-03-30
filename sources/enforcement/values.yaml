@@ -24,7 +24,5 @@ affinity: {}
 spec:
   argo:
     host: argocd-server.argocd.svc.cluster.local
-  rancher:
-    host: ""
   enforcement:
     secret: enforcement-secret

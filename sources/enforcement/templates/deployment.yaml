@@ -28,15 +28,10 @@ spec:
             cpu: {{ .Values.resources.requests.cpu}}
             memory: {{ .Values.resources.requests.memory}}
         env:
-          - name: RANCHER_URL
-            value: "https://{{.Values.spec.rancher.host}}"
+          - name: OPERATOR_NAMESPACE
+            value: {{ .Release.Namespace }}
           - name: ARGO_URL
             value: "https://{{.Values.spec.argo.host}}"
-          - name: RANCHER_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: {{.Values.spec.enforcement.secret}}
-                key: rancher.token
           - name: ARGO_USERNAME
             valueFrom:
               secretKeyRef:
