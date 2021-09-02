@@ -57,6 +57,23 @@ spec:
                       type: array
                       items:
                         type: string
+            triggers:
+              type: object
+              properties:
+                beforeInstall:
+                  type: object
+                  properties:
+                    endpoint:
+                      type: string
+                    timeout:
+                      type: integer
+                afterInstall:
+                  type: object
+                  properties:
+                    endpoint:
+                      type: string
+                    timeout:
+                      type: integer
           required:
             - enforcements
             - source
