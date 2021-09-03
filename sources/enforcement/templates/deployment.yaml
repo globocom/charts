@@ -19,7 +19,7 @@ spec:
         image: "globokaas/enforcement:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command: ["kopf"]
-        args: ["run", "main.py", "--namespace={{ .Release.Namespace }}", "--quiet"]
+        args: ["run", "main.py", "--namespace={{ .Release.Namespace }}", "--log-format=json" ,"--quiet"]
         resources:
           limits:
             cpu: {{ .Values.resources.limits.cpu}}

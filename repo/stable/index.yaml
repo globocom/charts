@@ -3,9 +3,9 @@ entries:
   enforcement:
   - apiVersion: v2
     appVersion: 0.6.0
-    created: "2021-09-02T21:01:44.229357-03:00"
+    created: "2021-09-02T21:29:13.15905-03:00"
     description: A Helm chart for Kubernetes
-    digest: a7e6c4c75bdc7c7cfcff7754d6210fea67f32d10cf653913acbd3d5e41ecdf52
+    digest: 78a1e904fd5b02dcbe2c09f3b916195fe3bc345d4b2e72fa3f14ff218f139804
     name: enforcement
     type: application
     urls:
