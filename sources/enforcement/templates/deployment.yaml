@@ -16,7 +16,7 @@ spec:
       serviceAccountName: {{ include "enforcement.fullname" . }}-account
       containers:
       - name: {{ .Chart.Name }}
-        image: "globokaas/enforcement:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command: ["kopf"]
         args: ["run", "main.py", "--namespace={{ .Release.Namespace }}", "--log-format=json" ,"--quiet"]

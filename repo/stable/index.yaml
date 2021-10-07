@@ -2,53 +2,63 @@ apiVersion: v1
 entries:
   enforcement:
   - apiVersion: v2
+    appVersion: 0.7.0
+    created: "2021-10-06T13:14:00.530640453-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 22b789fe2e7e6d3d3df0dc2009716d6b94e6801a91db01c7e248a803646c2469
+    name: enforcement
+    type: application
+    urls:
+    - enforcement-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
     appVersion: 0.6.0
-    created: "2021-09-02T21:29:13.15905-03:00"
+    created: "2021-10-06T13:14:00.530053046-03:00"
     description: A Helm chart for Kubernetes
     digest: 78a1e904fd5b02dcbe2c09f3b916195fe3bc345d4b2e72fa3f14ff218f139804
     name: enforcement
     type: application
     urls:
-    - https://globocom.github.io/charts/repo/stable/enforcement-0.6.0.tgz
+    - enforcement-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v2
     appVersion: 0.5.0
-    created: "2021-03-30T10:56:04.875603-03:00"
+    created: "2021-10-06T13:14:00.529462143-03:00"
     description: A Helm chart for Kubernetes
-    digest: 56085fb372b4470743ffe202072e122ef03c49e9cece52a9d847640b053e60d9
+    digest: 9be937f4a7821563d2ec7bafbf4f266c6cea58328e5f97185be519b00e32d1ec
     name: enforcement
     type: application
     urls:
-    - https://globocom.github.io/charts/repo/stable/enforcement-0.5.0.tgz
+    - enforcement-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2021-02-24T12:30:51.197652768-03:00"
+    created: "2021-10-06T13:14:00.528882575-03:00"
     description: A Helm chart for Kubernetes
     digest: e84b49c0519eb6dea6316f34b6de16397221959732e7dc9aab8ea35c5cb6a44a
     name: enforcement
     type: application
     urls:
-    - https://globocom.github.io/charts/repo/stable/enforcement-0.3.0.tgz
+    - enforcement-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-02-24T12:30:51.196810428-03:00"
+    created: "2021-10-06T13:14:00.528314266-03:00"
     description: A Helm chart for Kubernetes
     digest: c02313c71862ef97ca8f15e578d267c89b1655d4dbf3af2e22e47073d73629be
     name: enforcement
     type: application
     urls:
-    - https://globocom.github.io/charts/repo/stable/enforcement-0.2.0.tgz
+    - enforcement-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-02-24T12:30:51.195954916-03:00"
+    created: "2021-10-06T13:14:00.527746896-03:00"
     description: A Helm chart for Kubernetes
     digest: ee30d085a59392d37b5591c6f2930fac30bd543e307b0637daf58c2ee3d5668b
     name: enforcement
     type: application
     urls:
-    - https://globocom.github.io/charts/repo/stable/enforcement-0.1.0.tgz
+    - enforcement-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-24T12:30:51.194884126-03:00"
+generated: "2021-10-06T13:14:00.526995423-03:00"
