@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   enforcement:
   - apiVersion: v2
+    appVersion: 0.7.1
+    created: "2021-10-14T13:40:04.889396106-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 4979ab4c3054c35b01ac1b113c0adab1b07610e8b3e18d77f3d2228bb8a23a43
+    name: enforcement
+    type: application
+    urls:
+    - enforcement-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v2
     appVersion: 0.7.0
-    created: "2021-10-06T13:14:00.530640453-03:00"
+    created: "2021-10-14T13:40:04.888487163-03:00"
     description: A Helm chart for Kubernetes
     digest: 22b789fe2e7e6d3d3df0dc2009716d6b94e6801a91db01c7e248a803646c2469
     name: enforcement
@@ -13,7 +23,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 0.6.0
-    created: "2021-10-06T13:14:00.530053046-03:00"
+    created: "2021-10-14T13:40:04.887425533-03:00"
     description: A Helm chart for Kubernetes
     digest: 78a1e904fd5b02dcbe2c09f3b916195fe3bc345d4b2e72fa3f14ff218f139804
     name: enforcement
@@ -23,7 +33,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 0.5.0
-    created: "2021-10-06T13:14:00.529462143-03:00"
+    created: "2021-10-14T13:40:04.886805155-03:00"
     description: A Helm chart for Kubernetes
     digest: 9be937f4a7821563d2ec7bafbf4f266c6cea58328e5f97185be519b00e32d1ec
     name: enforcement
@@ -33,7 +43,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2021-10-06T13:14:00.528882575-03:00"
+    created: "2021-10-14T13:40:04.88614706-03:00"
     description: A Helm chart for Kubernetes
     digest: e84b49c0519eb6dea6316f34b6de16397221959732e7dc9aab8ea35c5cb6a44a
     name: enforcement
@@ -43,7 +53,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-10-06T13:14:00.528314266-03:00"
+    created: "2021-10-14T13:40:04.885497688-03:00"
     description: A Helm chart for Kubernetes
     digest: c02313c71862ef97ca8f15e578d267c89b1655d4dbf3af2e22e47073d73629be
     name: enforcement
@@ -53,7 +63,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-10-06T13:14:00.527746896-03:00"
+    created: "2021-10-14T13:40:04.88480023-03:00"
     description: A Helm chart for Kubernetes
     digest: ee30d085a59392d37b5591c6f2930fac30bd543e307b0637daf58c2ee3d5668b
     name: enforcement
@@ -61,4 +71,4 @@ entries:
     urls:
     - enforcement-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-06T13:14:00.526995423-03:00"
+generated: "2021-10-14T13:40:04.884005224-03:00"

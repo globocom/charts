@@ -31,7 +31,7 @@ spec:
           - name: OPERATOR_NAMESPACE
             value: {{ .Release.Namespace }}
           - name: ARGO_URL
-            value: "https://{{.Values.spec.argo.host}}"
+            value: "{{.Values.spec.argo.host}}"
           - name: ARGO_USERNAME
             valueFrom:
               secretKeyRef:

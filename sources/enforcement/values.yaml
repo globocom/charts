@@ -24,6 +24,6 @@ affinity: {}
 
 spec:
   argo:
-    host: argocd-server.argocd.svc.cluster.local
+    host: https://argocd-server.argocd.svc.cluster.local
   enforcement:
     secret: enforcement-secret
